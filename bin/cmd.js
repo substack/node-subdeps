@@ -5,12 +5,12 @@ var entry = process.argv[2] || process.cwd();;
 var fs = require('fs');
 var path = require('path');
 
-if (path.existsSync(entry)) {
+if (fs.existsSync(entry)) {
     if (fs.statSync(entry).isDirectory()) {
-        if (path.existsSync(path.join(entry, 'package.json'))) {
+        if (fs.existsSync(path.join(entry, 'package.json'))) {
             entry = path.join(entry, 'index.js');
         }
-        else if (path.existsSync(path.join(entry, 'index.js'))) {
+        else if (fs.existsSync(path.join(entry, 'index.js'))) {
             entry = path.join(entry, 'index.js');
         }
         else {
